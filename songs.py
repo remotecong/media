@@ -56,7 +56,7 @@ def save_song(manifest, song_num, save_path):
     url = get_song_url(manifest, song_num)
     if url:
         print(f"SAVING: Song {song_num}")
-        path = os.path.join(save_path, f"Song {song_num}.mp4")
+        path = os.path.join(save_path, f"Song {song_num:03}.mp4")
         with requests.get(url, stream=True) as r:
             with open(path, 'wb') as f:
                 for chunk in r.iter_content(chunk_size=128):
